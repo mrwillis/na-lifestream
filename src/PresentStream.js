@@ -29,8 +29,9 @@ export default class PresentStream extends React.Component {
 
     constructor() {
         super();
-        this.socket = io.connect('http://192.168.56.1');
-        this.setupSocketHooks()
+        this.getLocalStream(true);
+        // this.socket = io.connect('http://192.168.56.1');
+        // this.setupSocketHooks()
     }
 
     setupSocketHooks() {
@@ -76,7 +77,7 @@ export default class PresentStream extends React.Component {
         }, (stream) => {
             console.log('getUserMedia success', stream);
             this.setState({
-                localStream: stream.toUrl()
+                localStream: stream
             })
         }, (error) => {
             console.log('error')
@@ -84,7 +85,7 @@ export default class PresentStream extends React.Component {
     };
 
     render() {
-        return ( <RTCView streamURL={this.state.localStream}/> )
+        return ( <RTCView streamURL={this.state.localStream.toUrl()}/> )
     }
 }
 
