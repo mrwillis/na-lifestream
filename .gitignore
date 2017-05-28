@@ -33,8 +33,7 @@ local.properties
 # node.js
 #
 node_modules/
-android/
-ios/
+.tmp
 
 npm-debug.log
 yarn-error.log
@@ -54,3 +53,4 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+/server/dist/

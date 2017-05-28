@@ -16,11 +16,11 @@ export default class AwesomeProject extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={styles.instructions}>
+          Welco
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          To get started, dqwdqwdw
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
