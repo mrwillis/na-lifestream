@@ -12,8 +12,8 @@
     "react": "^16.0.0-alpha.6",
     "react-native": "0.44.0",
     "react-native-webrtc": "^1.57.1",
-    "socket.io-client": "^2.0.1",
-    "react-navigation": "^1.0.0-beta.11"
+    "react-navigation": "^1.0.0-beta.11",
+    "socket.io-client": "^2.0.1"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
