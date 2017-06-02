@@ -32,6 +32,7 @@ export default class StreamScreen extends React.Component {
     render() {
         return (
                 <View style={styles.container}>
+                
                 </View>
                 );
     }

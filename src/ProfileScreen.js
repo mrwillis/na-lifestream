@@ -11,7 +11,8 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    ScrollView,
 } from 'react-native';
 import {
     StackNavigator,
@@ -30,10 +31,27 @@ export default class ProfileScreen extends React.Component {
     };
     render() {
         return (
-                <View>
-                <Text>Profile Page</Text>
+          <ScrollView 
+                  horizontal={false}>
+              <View style={styles.container}>
+                  <Text
+                    style={{
+                      fontSize:  8,
+                    }}>
+                    {'\n'} 
+                  </Text>
+                  <Text
+                    style={{
+                      color: "rgba(255,255,255,1)",
+                      fontSize: 20,
+                      fontWeight: "500",
+                      fontFamily: 'Helvetica Neue',
+                  }}> 
+                PROFILE
+                </Text>
                 <Image source={require('./img/sample-profile.png')} style={{width: 380, height: 600}}/>
-                </View>
-                );
+              </View>
+            </ScrollView>
+            );
     }
 }

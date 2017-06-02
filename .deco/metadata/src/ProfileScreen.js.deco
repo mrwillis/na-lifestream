@@ -1,0 +1,84 @@
+{
+	"liveValues": [
+		{
+			"range": {
+				"from": {
+					"line": 34,
+					"ch": 30
+				},
+				"to": {
+					"line": 34,
+					"ch": 35
+				}
+			},
+			"type": "boolean",
+			"name": "Horizontal",
+			"group": "SCROLL VIEW"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 44,
+					"ch": 29
+				},
+				"to": {
+					"line": 44,
+					"ch": 50
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "Color",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 45,
+					"ch": 32
+				},
+				"to": {
+					"line": 45,
+					"ch": 34
+				}
+			},
+			"type": "number",
+			"name": "FontSize",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 46,
+					"ch": 34
+				},
+				"to": {
+					"line": 46,
+					"ch": 39
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontWeight",
+			"type": "string",
+			"name": "FontWeight",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 47,
+					"ch": 34
+				},
+				"to": {
+					"line": 47,
+					"ch": 50
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontFamily",
+			"type": "string",
+			"name": "FontFamily",
+			"group": "TEXT"
+		}
+	]
+}

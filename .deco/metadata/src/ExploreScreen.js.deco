@@ -1,0 +1,172 @@
+{
+	"liveValues": [
+		{
+			"range": {
+				"from": {
+					"line": 35,
+					"ch": 30
+				},
+				"to": {
+					"line": 35,
+					"ch": 35
+				}
+			},
+			"type": "boolean",
+			"name": "Horizontal",
+			"group": "SCROLL VIEW"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 45,
+					"ch": 28
+				},
+				"to": {
+					"line": 45,
+					"ch": 30
+				}
+			},
+			"type": "number",
+			"name": "Height",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 46,
+					"ch": 28
+				},
+				"to": {
+					"line": 46,
+					"ch": 31
+				}
+			},
+			"type": "number",
+			"name": "Width"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 48,
+					"ch": 33
+				},
+				"to": {
+					"line": 48,
+					"ch": 54
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "BorderColor",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 49,
+					"ch": 38
+				},
+				"to": {
+					"line": 49,
+					"ch": 59
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "BackgroundColor"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 50,
+					"ch": 27
+				},
+				"to": {
+					"line": 50,
+					"ch": 29
+				}
+			},
+			"type": "number",
+			"name": "Left"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 52,
+					"ch": 31
+				},
+				"to": {
+					"line": 52,
+					"ch": 47
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 53,
+					"ch": 40
+				},
+				"to": {
+					"line": 53,
+					"ch": 61
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "PlaceholderTextColor",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 64,
+					"ch": 30
+				},
+				"to": {
+					"line": 64,
+					"ch": 33
+				}
+			},
+			"type": "number",
+			"name": "Height",
+			"max": 600,
+			"group": "MAP VIEW"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 65,
+					"ch": 29
+				},
+				"to": {
+					"line": 65,
+					"ch": 32
+				}
+			},
+			"type": "number",
+			"name": "Width",
+			"max": 600,
+			"group": "MAP VIEW"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 75,
+					"ch": 39
+				},
+				"to": {
+					"line": 75,
+					"ch": 43
+				}
+			},
+			"type": "boolean",
+			"name": "ShowUserLocation",
+			"group": "MAP VIEW"
+		}
+	]
+}

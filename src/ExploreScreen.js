@@ -1,22 +1,24 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * npm install --save react-navigation
  */
 
 import React, { Component } from 'react';
 import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    Button,
-    Image
-} from 'react-native';
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  ScrollView,
+  TextInput,
+} from 'react-native'
 import {
     StackNavigator,
     TabNavigator,
 } from 'react-navigation';
+import MapView from 'react-native-maps';
 import styles from "./Styles";
 
 export default class ExploreScreen extends React.Component {
@@ -30,15 +32,53 @@ export default class ExploreScreen extends React.Component {
     };
     render() {
         return (
-                <View>
-                <Text>Explore Page</Text>
+            <ScrollView 
+                  horizontal={false}>
+                <View style={styles.container}>
+                  <Text
+                    style={{
+                      fontSize:  12,
+                    }}>
+                    {'\n'} 
+                  </Text>
+                <TextInput
+                  style={{
+                    height: 30, 
+                    width:  340 ,
+                    borderWidth: 1,
+                    borderColor: "rgba(109,148,208,1)",
+                    backgroundColor:  "rgba(109,148,208,1)",
+                    left:  20,
+                  }}
+                  placeholder={"  Explore Here"}
+                  placeholderTextColor={"rgba(198,198,204,1)"}
+                  onChangeText={(text) => {this.setState({text})}}
+                  onSubmitEditing={() => {this.setState({text: ''})}}
+                  value={(this.state && this.state.text) || ''}
+                />
                 <Button
                 onPress={() => this.props.navigation.goBack()}
                 title="Go back home"
                 />
+                  <MapView
+                    style={{
+                      height: 200,
+                      width: 380,
+                    }}
+                    initialRegion={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                      }}
+                    onRegionChange={() => {}}
+                    onRegionChangeComplete={() => {}}
+                    showsUserLocation={true}
+                  />
                 <Image source={require('./img/sample-explore.png')} style={{width: 380, height: 600}}/>
-                </View>
-                );
+              </View>
+            </ScrollView>
+            );
     }
 }
 

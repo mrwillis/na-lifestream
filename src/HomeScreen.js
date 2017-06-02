@@ -11,7 +11,8 @@ import {
     Text,
     View,
     Button,
-    Image
+    Image,
+    ScrollView,
 } from 'react-native';
 import {
     StackNavigator,
@@ -42,10 +43,23 @@ export default class HomeScreen extends React.Component {
         uri: 'https://cdn.dribbble.com/users/964850/screenshots/2296322/attachments/434127/work2_alllist.png'
         };
         return (
-                <View>
-                <Text style={styles.instructions}>
-                To get started{'\n'}
-                Go to Explore to Follow Some Users
+            <ScrollView 
+                  horizontal={false}>
+                <View style={styles.container}>
+                  <Text
+                    style={{
+                      fontSize:  8,
+                    }}>
+                    {'\n'} 
+                  </Text>
+                  <Text
+                    style={{
+                      color: "rgba(255,255,255,1)",
+                      fontSize: 20,
+                      fontWeight: "500",
+                      fontFamily: 'Helvetica Neue',
+                  }}> 
+                LIVE STREAM APP
                 </Text>
                 <Button
                 onPress={() => this.props.navigation.navigate('Explore')}
@@ -56,6 +70,7 @@ export default class HomeScreen extends React.Component {
                 //source ={pic3}
                 style={{width: 380, height: 600}}/>
                 </View>
-                );
+            </ScrollView>
+            );
     }
 }
