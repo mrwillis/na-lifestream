@@ -18,7 +18,7 @@ import {
     StackNavigator,
     TabNavigator,
 } from 'react-navigation';
-import MapView from 'react-native-maps';
+//import MapView from 'react-native-maps';
 import styles from "./Styles";
 
 export default class ExploreScreen extends React.Component {
@@ -60,21 +60,6 @@ export default class ExploreScreen extends React.Component {
                 onPress={() => this.props.navigation.goBack()}
                 title="Go back home"
                 />
-                  <MapView
-                    style={{
-                      height: 200,
-                      width: 380,
-                    }}
-                    initialRegion={{
-                        latitude: 37.78825,
-                        longitude: -122.4324,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421,
-                      }}
-                    onRegionChange={() => {}}
-                    onRegionChangeComplete={() => {}}
-                    showsUserLocation={true}
-                  />
                 <Image source={require('./img/sample-explore.png')} style={{width: 380, height: 600}}/>
               </View>
             </ScrollView>
