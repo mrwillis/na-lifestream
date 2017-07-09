@@ -9,7 +9,7 @@
  * react-native link react-native-maps
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     AppRegistry,
     StyleSheet,
@@ -33,23 +33,23 @@ import ProfileScreen from "./src/ProfileScreen";
 import styles from "./src/Styles";
 
 const AwesomeProject = TabNavigator({
-                                    Home: {screen: HomeScreen},
-                                    Explore: {screen: ExploreScreen},
-                                    Stream: {screen: StreamScreen},
-                                    Notification: {screen: NotificationScreen},
-                                    Profile: {screen: ProfileScreen},
-                                    }, {
-                                    tabBarOptions: {
-                                        activeTintColor: '#e91e63',
-                                        showIcon:true,
-                                        showLabel:false,
-                                        labelStyle: {
-                                            fontSize: 12,
-                                        },
-                                        style: {
-                                            backgroundColor: "rgba(8,80,150,1)",
-                                        },
-                                    }
-                                    });
+    Home: {screen: HomeScreen},
+    Explore: {screen: ExploreScreen},
+    Stream: {screen: StreamScreen},
+    Notification: {screen: NotificationScreen},
+    Profile: {screen: ProfileScreen},
+}, {
+    tabBarOptions: {
+        activeTintColor: '#e91e63',
+        showIcon: true,
+        showLabel: false,
+        labelStyle: {
+            fontSize: 12,
+        },
+        style: {
+            backgroundColor: "rgba(8,80,150,1)",
+        },
+    }
+});
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

@@ -19,7 +19,6 @@ export default class AwesomeProject extends Component {
     return (
       <View style={styles.container}>
           <Text>Hi</Text>
-          <PresentStream/>
       </View>
     );
   }

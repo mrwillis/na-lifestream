@@ -9,9 +9,9 @@
   "license": "MIT",
   "repository": "https://github.com/mrwillis/na-lifestream.git",
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^16.0.0-alpha.6",
     "react-native": "0.44.0",
-    "react-native-maps": "^0.15.2",
     "react-native-webrtc": "^1.57.1",
     "react-navigation": "^1.0.0-beta.11",
     "socket.io-client": "^2.0.1"
