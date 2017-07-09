@@ -1,45 +1,60 @@
-import React from 'react'
-import {
-    Platform,
-} from 'react-native';
-import {
-    RTCPeerConnection,
-    RTCIceCandidate,
-    RTCSessionDescription,
-    RTCView,
-    MediaStream,
-    MediaStreamTrack,
-    getUserMedia
-} from 'react-native-webrtc'
+import React from "react";
+import {Button, View} from "react-native";
 
+import PropTypes from "prop-types";
+import {getUserMedia, RTCView} from "react-native-webrtc";
+import Utils from "./Utils";
 
-import io from 'socket.io-client'
+import io from "socket.io-client";
+import Reactotron from "reactotron-react-native";
+import Config from "./config";
 
-/**
- * Represents the stream being presented
- */
 export default class PresentStream extends React.Component {
     configuration = {"iceServers": [{"url": "stun:stun.l.google.com:19302"}]};
     socket = {};
 
+    static propTypes = {
+        streamStyle: PropTypes.object
+    };
+
     state = {
         presenterUser: '',
-        localStream: {}
+        localStream: null
     };
 
     constructor() {
         super();
         this.getLocalStream(true);
-        // this.socket = io.connect('http://192.168.56.1');
-        // this.setupSocketHooks()
+        this.socket = io.connect(Config.SIGNALING_SERVER)
     }
 
-    setupSocketHooks() {
-        this.socket.on('connect', (data) => {
-            console.log('connected');
-            this.getLocalStream(true)
-        })
-    }
+    applyToHost = (jw) => {
+        Reactotron.log('feafaef');
+        fetch(Config.SIGNALING_SERVER + '/create-room', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                roomName: jw,
+                userName: 'Julian Wilson'
+            })
+        }).then(Utils.handleErrors).then(() => {
+            // Server agrees we can make a new room. Now associate the socket connection with the specific namespace
+            this.socket = io.connect(Config.SIGNALING_SERVER + '/' + jw);
+            // And apply to be the host of the room
+            this.socket.on('connect', () => {
+                this.socket.emit('apply-to-host')
+            });
+
+        }).catch((error) => {
+            Reactotron.log(error)
+        });
+    };
+
+    joinRoom = (roomName) => {
+        this.socket.emit('join', {roomName: roomName})
+    };
 
 
     /**
@@ -47,22 +62,6 @@ export default class PresentStream extends React.Component {
      * @param isFront
      */
     getLocalStream = (isFront) => {
-        let videoSourceId;
-
-        // on android, you don't have to specify sourceId manually, just use facingMode
-        // uncomment it if you want to specify
-        if (Platform.OS === 'ios') {
-            MediaStreamTrack.getSources(sourceInfos => {
-                console.log("sourceInfos: ", sourceInfos);
-
-                for (let i = 0; i < sourceInfos.length; i++) {
-                    const sourceInfo = sourceInfos[i];
-                    if (sourceInfo.kind === "video" && sourceInfo.facing === (isFront ? "front" : "back")) {
-                        videoSourceId = sourceInfo.id;
-                    }
-                }
-            });
-        }
         getUserMedia({
             audio: true,
             video: {
@@ -71,21 +70,24 @@ export default class PresentStream extends React.Component {
                     minHeight: 360,
                     minFrameRate: 30,
                 },
-                facingMode: (isFront ? "user" : "environment"),
-                optional: (videoSourceId ? [{sourceId: videoSourceId}] : []),
+                facingMode: (isFront ? "user" : "environment")
             }
         }, (stream) => {
-            console.log('getUserMedia success', stream);
             this.setState({
-                localStream: stream
-            })
+                localStream: stream.toURL()
+            });
         }, (error) => {
-            console.log('error')
+            Reactotron.log(error)
         });
     };
 
     render() {
-        return ( <RTCView streamURL={this.state.localStream.toUrl()}/> )
+        return (
+            <View>
+                <Button onPress={() => this.joinRoom('jw')} title="Press to join room 'jw'"/>
+                <RTCView streamURL={this.state.localStream} style={this.props.streamStyle}/>
+            </View>
+        )
     }
 }
 
