@@ -6,7 +6,7 @@ import io from "socket.io-client";
 import React from "react";
 import {Button, Image, View} from "react-native";
 import styles from "./Styles";
-import Config from "./config";
+import {Config} from "./config";
 
 
 export default class WatchStream extends React.Component {
@@ -27,7 +27,6 @@ export default class WatchStream extends React.Component {
     constructor() {
         super();
         this.socket = io.connect(Config.SIGNALING_SERVER);
-        this.joinRoom('jw')
     }
 
 

@@ -5,10 +5,9 @@
 
 /**
  * The config class that you need to re-write to match your set-up.
- * @type {{SIGNALING_SERVER: string}}
+ * @type {{SIGNALING_SERVER: string}} The IP of your signaling server. Be aware that this will likely change
+ * every time you join a WiFi.
  */
-const Config = {
-    SIGNALING_SERVER: 'http://192.168.0.13'
+export const Config = {
+    SIGNALING_SERVER: 'http://192.168.0.15'
 };
-
-export default Config

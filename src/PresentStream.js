@@ -7,7 +7,7 @@ import Utils from "./Utils";
 
 import io from "socket.io-client";
 import Reactotron from "reactotron-react-native";
-import Config from "./config";
+import {Config} from "./config";
 
 export default class PresentStream extends React.Component {
     configuration = {"iceServers": [{"url": "stun:stun.l.google.com:19302"}]};
@@ -25,7 +25,10 @@ export default class PresentStream extends React.Component {
     constructor() {
         super();
         this.getLocalStream(true);
-        this.socket = io.connect(Config.SIGNALING_SERVER)
+        this.socket = io.connect(Config.SIGNALING_SERVER);
+        this.socket.on('connect', () => {
+            Reactotron.log('connected')
+        })
     }
 
     applyToHost = (jw) => {
