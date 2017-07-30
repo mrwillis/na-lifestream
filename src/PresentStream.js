@@ -2,7 +2,7 @@ import React from "react";
 import {Button, View} from "react-native";
 
 import PropTypes from "prop-types";
-import {getUserMedia, RTCView} from "react-native-webrtc";
+import {getUserMedia, RTCPeerConnection, RTCView} from "react-native-webrtc";
 import Utils from "./Utils";
 
 import io from "socket.io-client";
@@ -54,6 +54,16 @@ export default class PresentStream extends React.Component {
 
     joinRoom = (roomName) => {
         this.socket.emit('join', {roomName: roomName})
+    };
+
+    createOffer = () => {
+        let conn = new RTCPeerConnection(this.configuration);
+        conn.addStream(this.localStream);
+        conn.onicecandidate = (event) => {
+            if (event.candidate) {
+                this.socket.emit('ice-candidate-exchange', {candidate: event.candidate});
+            }
+        }
     };
 
 

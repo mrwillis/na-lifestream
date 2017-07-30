@@ -26,13 +26,15 @@ export default class WatchStream extends React.Component {
 
     constructor() {
         super();
-        this.socket = io.connect(Config.SIGNALING_SERVER)
+        this.socket = io.connect(Config.SIGNALING_SERVER);
+        this.joinRoom('jw')
     }
+
 
     render() {
         return (
             <View>
-                <Button onPress={() => this.joinRoom('jw')} title="Press to join room 'jw'"/>
+                <Button onPress={() => this.joinRoom('jw')} title="Join room"/>
             </View>
         )
     }
