@@ -6,7 +6,7 @@
 
 import React from "react";
 import {Image, View} from "react-native";
-import PresentStream from "./PresentStream";
+import PresentStream from "./stream/PresentStream";
 import styles from "./Styles";
 
 export default class StreamScreen extends React.Component {

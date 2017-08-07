@@ -7,7 +7,7 @@ import StreamScreen from "./StreamScreen";
 import NotificationScreen from "./NotificationScreen";
 import ProfileScreen from "./ProfileScreen";
 import {TabNavigator} from "react-navigation";
-import WatchScreen from "./WatchScreen";
+import WatchScreen from "./stream/WatchScreen";
 
 const Main = TabNavigator({
     Home: {screen: HomeScreen},

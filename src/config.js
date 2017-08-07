@@ -9,5 +9,5 @@
  * every time you join a WiFi.
  */
 export const Config = {
-    SIGNALING_SERVER: 'http://192.168.0.15'
+    SIGNALING_SERVER: 'http://192.168.0.16'
 };

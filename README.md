@@ -25,3 +25,9 @@ For two devices:
 `adb devices`. You should see two devices, one with an IP and port and the other that looks like a MAC address.
 Pick the MAC address and do this: `adb -s [ADDRESS] reverse tcp:9090 tcp:9090`
 
+## Configuring with the signaling server
+
+Everytime you join a new Wi-Fi network, you will get assigned an IP in the network. It will usually be something like `192.168.0.#`
+In your `config.js` file, you need to change the IP to your network IP.
+
+
